@@ -28,7 +28,6 @@ public class SudokuSolver {
 
         boolean emptyLeft = true;
 
-        // this is how we are replacing the r,c from arguments
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == 0) {
@@ -38,7 +37,6 @@ public class SudokuSolver {
                     break;
                 }
             }
-            // if you found some empty element in row, then break
             if (!emptyLeft) {
                 break;
             }
@@ -46,7 +44,6 @@ public class SudokuSolver {
 
         if (emptyLeft) {
             return true;
-            // soduko is solved
         }
 
         // backtrack
@@ -54,10 +51,8 @@ public class SudokuSolver {
             if (isSafe(board, row, col, number)) {
                 board[row][col] = number;
                 if (solve(board)) {
-                    // found the answer
                     return true;
                 } else {
-                    // backtrack
                     board[row][col] = 0;
                 }
             }
@@ -76,17 +71,13 @@ public class SudokuSolver {
 
 
     static boolean isSafe(int[][] board, int row, int col, int num) {
-        // check the row
         for (int i = 0; i < board.length; i++) {
-            // check if the number is in the row
             if (board[row][i] == num) {
                 return false;
             }
         }
 
-        // check the col
         for (int[] nums : board) {
-            // check if the number is in the col
             if (nums[col] == num) {
                 return false;
             }

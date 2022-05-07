@@ -60,7 +60,7 @@ public class SudokuSolver {
         return false;
     }
 
-    private static void display(int[][] board) {
+    static void display(int[][] board) {
         for (int[] row : board) {
             for (int num : row) {
                 System.out.print(num + " ");

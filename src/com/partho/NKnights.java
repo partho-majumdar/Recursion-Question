@@ -18,7 +18,7 @@ public class NKnights {
             return;
         }
 
-        if (col == board.length) {
+        if (col == board[0].length) {
             knight(board, row + 1, 0, knights);
             return;
         }
@@ -31,7 +31,7 @@ public class NKnights {
         knight(board, row, col + 1, knights);
     }
 
-    private static boolean isSafe(boolean[][] board, int row, int col) {
+    static boolean isSafe(boolean[][] board, int row, int col) {
 
         if (isValid(board, row - 2, col - 1)) {
             if (board[row - 2][col - 1]) {
@@ -66,7 +66,7 @@ public class NKnights {
         return false;
     }
 
-    private static void display(boolean[][] board) {
+    static void display(boolean[][] board) {
         for (boolean[] row : board) {
             for (boolean element : row) {
                 if (element) {

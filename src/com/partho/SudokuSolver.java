@@ -71,18 +71,22 @@ public class SudokuSolver {
 
 
     static boolean isSafe(int[][] board, int row, int col, int num) {
+
+        // for row
         for (int i = 0; i < board.length; i++) {
             if (board[row][i] == num) {
                 return false;
             }
         }
 
+        // for col
         for (int[] nums : board) {
             if (nums[col] == num) {
                 return false;
             }
         }
 
+        // for 3 * 3 matrix
         int sqrt = (int) (Math.sqrt(board.length));
         int rowStart = row - row % sqrt;
         int colStart = col - col % sqrt;

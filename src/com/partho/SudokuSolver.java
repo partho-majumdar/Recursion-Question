@@ -60,6 +60,7 @@ public class SudokuSolver {
         return false;
     }
 
+    // for display answer
     static void display(int[][] board) {
         for (int[] row : board) {
             for (int num : row) {
